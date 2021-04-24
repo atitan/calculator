@@ -282,7 +282,6 @@ BTNode* muldiv_expr(void)
 BTNode* factor(void)
 {
         BTNode* retp = NULL;
-	char tmpstr[MAXLEN];
 
 	if (match(INT)) {
 		retp =  makeNode(INT, getLexeme());
@@ -291,7 +290,6 @@ BTNode* factor(void)
 	} else if (match(ID)) {
 	        BTNode* left = makeNode(ID, getLexeme());
         	left->val = getval();
-	        strcpy(tmpstr, getLexeme());
         	advance();
 	        if (match(ASSIGN)) {
 	            	retp = makeNode(ASSIGN, getLexeme());
